@@ -31,9 +31,13 @@ springBoot {
     mainClass = "bsa.BSAController"
 }
 
+Properties properties = new Properties()
+properties.load(project.rootProject.file('gradle.properties').newDataInputStream())
+def version = properties.getProperty('version')
+
 jar {
     baseName = 'boot-bsa'
-    version =  '0.1.0'
+    version = version
 }
 
 repositories {
